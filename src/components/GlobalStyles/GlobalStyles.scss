@@ -4,8 +4,8 @@
 :root {
     --primary: #FE2C55;
     --default-header-layout-height: 60px;
-    --default-layout-width : 1150px
-
+    --default-layout-width : 1150px;
+    --text-color: #333;
 }
 
 * {
@@ -22,4 +22,10 @@ body {
     font-family: Arial, Tahoma, sans-serif;
     font-size: 1.6rem;
     text-rendering: optimizeSpeed;
+}
+
+
+a[href] {
+    text-decoration: none;
+    color: var(--text-color);
 }
