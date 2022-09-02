@@ -1,0 +1,12 @@
+
+.menu-popper{
+    padding: 8px 0;
+
+}
+
+.menu-item{
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}

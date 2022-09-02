@@ -6,6 +6,7 @@
     --default-header-layout-height: 60px;
     --default-layout-width : 1150px;
     --text-color: #333;
+    --white-color: #fff
 }
 
 * {
@@ -24,6 +25,12 @@ body {
     text-rendering: optimizeSpeed;
 }
 
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
 
 a[href] {
     text-decoration: none;

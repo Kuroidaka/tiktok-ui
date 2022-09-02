@@ -1,0 +1,82 @@
+.wrapper {
+    font-weight: 700;
+    font-size: 1.6rem;
+    min-width: 100px;
+    padding: 9px 8px;
+    border-radius: 4px;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: transparent;
+    
+    + .wrapper{
+        margin-left: 16px;
+    }
+
+}
+
+.round {
+    border-radius: 999px;
+    box-shadow: 0 2px 8pxrgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(22, 24, 35, 0.12);
+
+    &:hover{
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+
+    }
+}
+
+.primary {
+    background-color: var( --primary);
+    color: var(--white-color);  
+    
+    &:hover{
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),#FE2C55;
+    }
+}
+
+.outline {
+    color: var(--primary);
+    border-color: currentColor;
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.df {
+    border: 1px solid rgba(22, 24, 35, 0.12);
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.text {
+
+    &:hover {
+
+        text-decoration: underline;
+    }
+}
+
+.disable {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.icon{
+    margin-right: 16px;
+}
+
+
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+
+.large {
+    padding: 14px 16px;
+    min-width: 140px;
+}
