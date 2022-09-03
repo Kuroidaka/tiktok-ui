@@ -1,0 +1,20 @@
+.menu-header {
+    display: flex;
+    position: relative;
+    padding: 16px 0px;
+    margin-top: -8px;
+    cursor: pointer;
+
+    .icon {
+        padding-left: 28px;
+    }
+
+    .menu-header-title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+
+}
