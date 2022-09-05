@@ -4,7 +4,10 @@ import { forwardRef } from 'react'
 
 import styles from './Img.module.scss'
 import { img } from '~/asserts/img'
+
 const cx = classNames.bind(styles)
+
+
 
 function Img(
   { alt, src, fallBack: customFallback = img.noImg, classNames, ...props },
@@ -12,15 +15,18 @@ function Img(
 ) {
   const [fallBack, setFallback] = useState('')
 
+  const handleError = () => {
+    setFallback(customFallback)
+  }
+ 
   return (
     <img
       ref={ref}
-      classNames={classNames}
-      src={src || customFallback }
+      classNames={cx('wrapper', {classNames})}
+      src={ fallBack || src}
       alt={alt}
-      onError={() => {
-        setFallback(customFallback)
-      }}
+      onError={handleError}
+     
       {...props}
     />
   )
