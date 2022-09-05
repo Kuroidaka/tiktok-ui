@@ -1,22 +1,19 @@
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faArrowRightFromBracket,
   faArrowUpFromBracket,
-  faCircleQuestion,
   faCircleXmark,
-  faCoins,
-  faEarthAsia,
   faEllipsisVertical,
-  faGear,
-  faKeyboard,
   faMagnifyingGlass,
   faSpinner,
-  faUser,
+  faGear,
+  faCoins,
+  faEarthAsia,
+  faArrowRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons'
 import HeadlessTippy from '@tippyjs/react/headless'
 import Tippy from '@tippyjs/react'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import 'tippy.js/dist/tippy.css' // optional
 
 import styles from './Header.module.scss'
@@ -25,7 +22,13 @@ import { PopperWrapper } from '~/components/Popper'
 import Accounts from '~/components/AccountItems'
 import Button from '~/components/Button'
 import Menu from '~/components/Popper/Menu'
-import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
+import {
+  faCircleQuestion,
+  faKeyboard,
+  faUser,
+} from '@fortawesome/free-regular-svg-icons'
+import { InboxIcon, UploadIcon } from '~/components/Icons'
+import Img from '~/components/Images'
 
 const cx = classNames.bind(styles)
 
@@ -73,14 +76,13 @@ const user_menu = [
     icon: <FontAwesomeIcon icon={faGear}></FontAwesomeIcon>,
     title: 'Settings',
   },
- 
+
   ...MENU_ITEMS,
   {
     icon: <FontAwesomeIcon icon={faArrowRightFromBracket}></FontAwesomeIcon>,
     title: 'Log out',
-    topBorder: true
-  }
-
+    topBorder: true,
+  },
 ]
 
 function Header() {
@@ -109,17 +111,14 @@ function Header() {
 
         <HeadlessTippy
           // visible={searchResult.length > 0}
+
           interactive
           render={(attrs) => (
             <div className={cx('search-result')} tabIndex={-1} {...attrs}>
               <PopperWrapper>
                 <h4 className={cx('search-title')}>Accounts</h4>
-                <Accounts />
-                <Accounts />
-                <Accounts />
-                <Accounts />
-                <Accounts />
-                <Accounts />
+                <Accounts src='https://vtv1.mediacdn.vn/thumb_w/650/2022/3/4/avatar-jake-neytiri-pandora-ocean-1646372078251163431014-crop-16463720830272075805905.jpg'/>
+             
               </PopperWrapper>
             </div>
           )}
@@ -152,12 +151,20 @@ function Header() {
 
           {currentUser ? (
             <>
-            
+              {/* MESSAGE BTN */}
               <Tippy content={'Message'}>
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faPaperPlane} />
+                  <UploadIcon />
                 </button>
               </Tippy>
+
+              {/* INBOX BTN */}
+              <Tippy content={'Inbox'}>
+                <button className={cx('action-btn')}>
+                  <InboxIcon width='3.2rem' height='3.2rem' />
+                </button>
+              </Tippy>
+
             </>
           ) : (
             <>
@@ -165,14 +172,18 @@ function Header() {
             </>
           )}
 
-          <Menu items={currentUser? user_menu : MENU_ITEMS} onChange={handleMenuChange}>
+          <Menu
+            items={currentUser ? user_menu : MENU_ITEMS}
+            onChange={handleMenuChange}
+          >
             {currentUser ? (
               <div className={cx('user-login')}>
-                <img 
-                  src='https://scontent.fsgn15-1.fna.fbcdn.net/v/t39.30808-6/279685278_3209864065999719_4526217248550211805_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=IEcsxSSUv_0AX8DhOwE&_nc_ht=scontent.fsgn15-1.fna&oh=00_AT8mcAXS8vbxKqke7ApIn9jU3doHriOf7U9sEY-szjhVlA&oe=6318BDAA'
+                <Img
+                  alt='name'
+                  src="https://scontent.fsgn15-1.fna.fbcdn.net/v/t39.30808-6/279685278_3209864065999719_4526217248550211805_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=IEcsxSSUv_0AX8DhOwE&_nc_ht=scontent.fsgn15-1.fna&oh=00_AT8mcAXS8vbxKqke7ApIn9jU3doHriOf7U9sEY-szjhVlA&oe=6318BDAA"
+                  fallBack='https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/279685278_3209864065999719_4526217248550211805_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1CcemFrgoO8AX-PKYQc&_nc_ht=scontent.fsgn1-1.fna&oh=00_AT80v2X0izNoULZ8YNkaCgcCq46i6mowZ5HJO6tP1Ks6uA&oe=631AB7EA'
                   className={cx('user-login-img')}
-                  />
-                
+                />
               </div>
             ) : (
               <button className={cx('more-btn')}>

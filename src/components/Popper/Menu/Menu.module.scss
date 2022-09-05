@@ -16,10 +16,8 @@
     .menu-item-btn{
         text-align: left;
         flex: 1;
-    }
-
-    .topBorder {
-        border-top: 1px solid rgba(22, 24, 35, 0.12);
+        font-weight: 500;
+        color: var(--text-color);
     }
 
 
@@ -28,5 +26,9 @@
     }
 
 
+}
+
+.topBorder {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
 }
 

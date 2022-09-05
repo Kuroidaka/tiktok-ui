@@ -19,7 +19,7 @@ function Menu({ children, items = [], onChange = dfFunction  }) {
   const renderItems = () => {
     return current.data.map((item, index) => {
       const isParent = !!item.children
-      const classes = cx('menu-item-btn', {
+      const classes = cx('menu-item', {
           topBorder : item.topBorder
       })
 
@@ -27,7 +27,7 @@ function Menu({ children, items = [], onChange = dfFunction  }) {
       return (
         <div
           key={index}
-          className={cx('menu-item')}
+          className={classes}
           onClick={() => {
             if (isParent) {
               setHistory((prev) => [...prev, item.children])
@@ -36,7 +36,7 @@ function Menu({ children, items = [], onChange = dfFunction  }) {
             }
           }}
         >
-          <Button leftIcon={item.icon} className={classes}>
+          <Button leftIcon={item.icon} className={cx('menu-item-btn')}>
             {item.title}
           </Button>
         </div>
@@ -46,9 +46,10 @@ function Menu({ children, items = [], onChange = dfFunction  }) {
 
   return (
     <Tippy
-    // visible
+
       delay={[0, 500]}
       interactive
+      offset={[12,10]}
       placement="bottom-end"
       onHide={() => { setHistory(pre => pre.slice(0, 1)) }}
       render={(attrs) => (
