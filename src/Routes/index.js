@@ -5,15 +5,15 @@ import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
-
+import { routesPath } from '~/configRoutes';
 
 // Public Routes
 const publicRoutes = [
-    {path: '/' , component: Home },
-    {path: '/following' , component: Following },
-    {path: '/@:nickname' , component: Profile },
-    {path: '/upload' , component: Upload, layout: null },
-    {path: '/search' , component: Search, layout: HeaderOnly}
+    {path: routesPath.home , component: Home },
+    {path: routesPath.following , component: Following },
+    {path: routesPath.profile , component: Profile },
+    {path: routesPath.upload , component: Upload, layout: null },
+    {path: routesPath.search , component: Search, layout: HeaderOnly}
 ]
 
 const privateRoutes = [

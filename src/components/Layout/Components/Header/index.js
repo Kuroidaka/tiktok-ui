@@ -16,7 +16,6 @@ import 'tippy.js/dist/tippy.css' // optional
 import styles from './Header.module.scss'
 import { img } from '~/asserts/img'
 
-
 import Button from '~/components/Button'
 import Menu from '~/components/Popper/Menu'
 import {
@@ -27,7 +26,7 @@ import {
 import { InboxIcon, UploadIcon } from '~/components/Icons'
 import Img from '~/components/Images'
 import SearchBar from '~/components/SeachBar'
-
+import { Link } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
@@ -85,8 +84,6 @@ const user_menu = [
 ]
 
 function Header() {
-
-
   // handle logic
   const handleMenuChange = (menuItem) => {
     switch (menuItem.type) {
@@ -100,10 +97,13 @@ function Header() {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <img src={img.logo} alt="TikTok" className={cx('TikTok-logo')} />
+
+        <Link to={'/'} className={cx('TikTok-logo')} >
+          <img src={img.logo} alt="TikTok" />
+        </Link>
 
         {/* Search */}
-          <SearchBar />
+        <SearchBar />
         {/* action */}
 
         <div className={cx('action')}>

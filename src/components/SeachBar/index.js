@@ -11,6 +11,10 @@ import classNames from 'classnames/bind'
 import { PopperWrapper } from '~/components/Popper'
 import Accounts from '~/components/AccountItems'
 import styles from './SearchBar.module.scss'
+import { useDebounce } from '~/components/Hooks'
+import SearchInput from './Input'
+// import * as request from '~/Utils/Request'
+import * as apiService from '~/apiService/SearchService'
 
 const cx = classNames.bind(styles)
 
@@ -21,33 +25,39 @@ function SearchBar() {
   const [loading, setLoading] = useState(false)
 
   const refInput = useRef()
+  const deBounce = useDebounce(searchValue, 500)
 
   useEffect(() => {
-    if (!searchValue.trim()) return
+    if (!deBounce.trim()) return
+
     setLoading(true)
-    fetch(
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        searchValue,
-      )}&type=less`,
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setSearchResult(res.data)
-        setLoading(false)
-      })
-  }, [searchValue])
 
-  function handleInput(e) {
-    return setSearchValue(e.target.value)
-    // return setTimeout(() => {
+    // GET API
 
-    // }, 1000)
+    const fetchApi = async () => {
+      const result = await apiService.search(deBounce)
+      setSearchResult(result)
+      setLoading(false)
+    }
+
+    fetchApi()
+    // console.log(res);
+  }, [deBounce])
+
+  const handleInput = (e) => {
+    const value = e.target.value
+    if(!value.startsWith(' '))
+    setSearchValue(value)
   }
 
   const handleClear = () => {
     setSearchValue('')
     setSearchResult([])
     refInput.current.focus()
+  }
+
+  const handleClickSearchBtn = (e) => {
+    return e.preventDefault();
   }
 
   return (
@@ -67,12 +77,11 @@ function SearchBar() {
       onClickOutside={() => setShowResult(false)}
     >
       <div className={cx('search')}>
-        <input
+        <SearchInput
           ref={refInput}
           value={searchValue}
           placeholder="Search accounts and videos"
-          spellCheck={false}
-          onChange={(e) => handleInput(e)}
+          onInput={(e) => handleInput(e)}
           onFocus={() => {
             setShowResult(true)
           }}
@@ -90,7 +99,7 @@ function SearchBar() {
           </div>
         )}
 
-        <button className={cx('search-btn')}>
+        <button className={cx('search-btn')} onMouseDown={e => handleClickSearchBtn(e)}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </div>

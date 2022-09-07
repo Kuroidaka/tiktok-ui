@@ -12,7 +12,7 @@ const cx = classNames.bind(styles)
 
 const dfFunction = () => {}
 
-function Menu({ children, items = [], onChange = dfFunction  }) {
+function Menu({ children, hideOnClick= false, items = [], onChange = dfFunction  }) {
   const [history, setHistory] = useState([{ data: items }])
   const current = history[history.length - 1]
 
@@ -44,11 +44,14 @@ function Menu({ children, items = [], onChange = dfFunction  }) {
     })
   }
 
+  // const 
+
   return (
     <Tippy
 
       delay={[0, 500]}
       interactive
+      hideOnClick= {hideOnClick}
       offset={[12,10]}
       placement="bottom-end"
       onHide={() => { setHistory(pre => pre.slice(0, 1)) }}

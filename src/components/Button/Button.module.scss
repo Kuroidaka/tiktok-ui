@@ -8,7 +8,7 @@
     cursor: pointer;
     border: 1px solid transparent;
     background-color: transparent;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
     font-weight: 600;
     
     + .wrapper{

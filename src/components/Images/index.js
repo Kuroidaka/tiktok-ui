@@ -18,11 +18,13 @@ function Img(
   const handleError = () => {
     setFallback(customFallback)
   }
- 
+  
+  const classes = cx('wrapper', {[classNames] : classNames,})
+
   return (
     <img
       ref={ref}
-      classNames={cx('wrapper', {classNames})}
+      className={classes}
       src={ fallBack || src}
       alt={alt}
       onError={handleError}
