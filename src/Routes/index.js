@@ -1,11 +1,14 @@
 import { layouts } from '~/layouts';
 
+import config from '~/config';
 import Home from '~/pages/Home';
 import Following from '~/pages/Following';
+import Live from '~/pages/Live'
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
-import config from '~/config';
+
+
 
 // Public Routes
 const publicRoutes = [
@@ -13,7 +16,8 @@ const publicRoutes = [
     {path: config.routesPath.following , component: Following },
     {path: config.routesPath.profile , component: Profile },
     {path: config.routesPath.upload , component: Upload, layout: null },
-    {path: config.routesPath.search , component: Search, layout: layouts.HeaderOnly}
+    {path: config.routesPath.search , component: Search, layout: layouts.HeaderOnly},
+    {path: config.routesPath.live , component: Live }
 ]
 
 const privateRoutes = [

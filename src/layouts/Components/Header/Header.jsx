@@ -25,12 +25,12 @@ import {
 } from '@fortawesome/free-regular-svg-icons'
 import { InboxIcon, UploadIcon } from '~/components/Icons'
 import Img from '~/components/Images'
-import SearchBar from '~/components/SeachBar'
+import SearchBar from '~/components/SearchBar'
 import { Link } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
-const currentUser = false
+const currentUser = true
 const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
@@ -39,12 +39,12 @@ const MENU_ITEMS = [
       title: 'Language',
       data: [
         {
-          type: 'langugae',
+          type: 'language',
           code: 'en',
           title: 'English',
         },
         {
-          type: 'langugae',
+          type: 'language',
           code: 'vi',
           title: 'Tiếng Việt',
         },
@@ -105,6 +105,8 @@ function Header() {
 
         {/* Search */}
         <SearchBar />
+
+
         {/* action */}
 
         <div className={cx('action')}>

@@ -1,1 +1,1 @@
-export  { UploadIcon, InboxIcon } from './Icons'
+export  * from './Icons'
