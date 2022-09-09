@@ -1,3 +1,4 @@
+
 export const routesPath = {
   home: '/',
   following: '/following',

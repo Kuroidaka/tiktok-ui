@@ -1,6 +1,7 @@
-import { Header } from '~/components/Layout/Components'
-import Sidebar from "./SideBar";
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+
+import { Header, Sidebar } from '~/layouts/Components'
 import styles from './DefaultLayout.module.scss'
 
 const cx = classNames.bind(styles);
@@ -17,6 +18,11 @@ function DefaultLayout({ children }) {
             </div>
         </div>
     );
+}
+
+DefaultLayout.prototype = {
+    children: PropTypes.node
+
 }
 
 export default DefaultLayout;

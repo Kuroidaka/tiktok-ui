@@ -16,7 +16,7 @@ import 'tippy.js/dist/tippy.css' // optional
 import styles from './Header.module.scss'
 import { img } from '~/asserts/img'
 
-import Button from '~/components/Button'
+import Button from '~/components/Button/Button'
 import Menu from '~/components/Popper/Menu'
 import {
   faCircleQuestion,
@@ -30,7 +30,7 @@ import { Link } from 'react-router-dom'
 
 const cx = classNames.bind(styles)
 
-const currentUser = true
+const currentUser = false
 const MENU_ITEMS = [
   {
     icon: <FontAwesomeIcon icon={faEarthAsia}></FontAwesomeIcon>,
@@ -48,6 +48,7 @@ const MENU_ITEMS = [
           code: 'vi',
           title: 'Tiếng Việt',
         },
+        
       ],
     },
   },
