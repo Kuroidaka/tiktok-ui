@@ -1,3 +1,5 @@
+
+
 export const UploadIcon = ({
   classNames,
   width = '3.2rem',
@@ -185,5 +187,24 @@ export const ActiveCamIcon = ({
       d="M23.25 23.134C23.9167 23.5189 23.9167 24.4811 23.25 24.866L17.25 28.3301C16.5833 28.715 15.75 28.2339 15.75 27.4641L15.75 20.5359C15.75 19.7661 16.5833 19.285 17.25 19.6699L23.25 23.134Z"
       fill="white"
     ></path>
+  </svg>
+)
+
+// MUSIC ICON
+
+export const MusicIcon = ({
+  classNames,
+  width = '1rem',
+  height = '1rem',
+}) => (
+  <svg
+    viewBox="0 0 48 48"
+    xmlns="http://www.w3.org/2000/svg"
+    // className={classNames}
+    width={width}
+    height={height}
+    className={`tiktok-812w79-SvgIcon epjbyn1 ${classNames}`}
+  >
+    <use xlinkHref="#svg-music-note"></use>
   </svg>
 )

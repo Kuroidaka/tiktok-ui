@@ -27,6 +27,7 @@ import { InboxIcon, UploadIcon } from '~/components/Icons'
 import Img from '~/components/Images'
 import SearchBar from '~/components/SearchBar'
 import { Link } from 'react-router-dom'
+// import Avatar from '~/components/Avatar'
 
 const cx = classNames.bind(styles)
 
@@ -114,8 +115,8 @@ function Header() {
             Upload
           </Button>
 
-          {currentUser ? (
-            <>
+          {currentUser 
+          ? (<>
               {/* MESSAGE BTN */}
               <Tippy content={'Message'}>
                 <button className={cx('action-btn')}>
@@ -129,26 +130,26 @@ function Header() {
                   <InboxIcon width="3.2rem" height="3.2rem" />
                 </button>
               </Tippy>
-            </>
-          ) : (
-            <>
+            </>) 
+          
+          : (<>
               <Button primary>Login</Button>
-            </>
-          )}
+            </>)
+          }
 
           <Menu
             items={currentUser ? user_menu : MENU_ITEMS}
             onChange={handleMenuChange}
           >
             {currentUser ? (
-              <div className={cx('user-login')}>
-                <Img
-                  alt="name"
-                  src="https://scontent.fsgn15-1.fna.fbcdn.net/v/t39.30808-6/279685278_3209864065999719_4526217248550211805_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=IEcsxSSUv_0AX8DhOwE&_nc_ht=scontent.fsgn15-1.fna&oh=00_AT8mcAXS8vbxKqke7ApIn9jU3doHriOf7U9sEY-szjhVlA&oe=6318BDAA"
-                  fallBack="https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/279685278_3209864065999719_4526217248550211805_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1CcemFrgoO8AX-PKYQc&_nc_ht=scontent.fsgn1-1.fna&oh=00_AT80v2X0izNoULZ8YNkaCgcCq46i6mowZ5HJO6tP1Ks6uA&oe=631AB7EA"
-                  className={cx('user-login-img')}
-                />
-              </div>
+             <div className={cx('user-login')}>
+             <Img
+               alt="name"
+               src="https://scontent.fsgn15-1.fna.fbcdn.net/v/t39.30808-6/279685278_3209864065999719_4526217248550211805_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=IEcsxSSUv_0AX8DhOwE&_nc_ht=scontent.fsgn15-1.fna&oh=00_AT8mcAXS8vbxKqke7ApIn9jU3doHriOf7U9sEY-szjhVlA&oe=6318BDAA"
+               fallBack="https://scontent.fsgn1-1.fna.fbcdn.net/v/t39.30808-6/279685278_3209864065999719_4526217248550211805_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1CcemFrgoO8AX-PKYQc&_nc_ht=scontent.fsgn1-1.fna&oh=00_AT80v2X0izNoULZ8YNkaCgcCq46i6mowZ5HJO6tP1Ks6uA&oe=631AB7EA"
+               className={cx('user-login-img')}
+             />
+           </div>
             ) : (
               <button className={cx('more-btn')}>
                 <FontAwesomeIcon icon={faEllipsisVertical} />

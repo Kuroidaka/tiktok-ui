@@ -1,9 +1,11 @@
 import classNames from 'classnames/bind'
 
+
 import styles from './SideBar.module.scss'
 import config from '~/config'
 import { Menu, MenuItem } from './Menu'
 import * as icons from '~/components/Icons'
+import { AccountList } from './AccountList'
 
 const cx = classNames.bind(styles)
 
@@ -31,6 +33,12 @@ function Sidebar() {
           icon={<icons.CamIcon />}
           activeIcon={<icons.ActiveCamIcon />}
         />
+
+        <AccountList />
+        <AccountList />
+        <AccountList />
+        <AccountList />
+
       </Menu>
     </aside>
   )

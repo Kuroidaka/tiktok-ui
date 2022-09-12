@@ -12,11 +12,11 @@ function Img(
   { alt, src, fallBack: customFallback = img.noImg, classNames, ...props },
   ref,
 ) {
-  const [fallBack, setFallback] = useState('')
+  // const [fallBack, setFallback] = useState(customFallback)
 
-  const handleError = () => {
-    setFallback(customFallback)
-  }
+  // const handleError = () => {
+  //   setFallback(customFallback)
+  // }
 
   const classes = cx('wrapper', { [classNames]: classNames })
 
@@ -24,9 +24,9 @@ function Img(
     <img
       ref={ref}
       className={classes}
-      src={fallBack || src}
+      src={src || customFallback }
       alt={alt}
-      onError={handleError}
+      // onError={handleError}
       {...props}
     />
   )

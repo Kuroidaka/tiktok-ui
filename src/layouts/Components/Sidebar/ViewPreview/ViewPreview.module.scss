@@ -1,0 +1,54 @@
+.wrapper {
+    width: 320px;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.btn { 
+
+    padding: 6px 8px;
+}
+
+.name {
+    display: flex;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.avatar {
+    margin-right: 12px;
+}
+
+.icon {
+    color: rgb(32, 213, 236);;
+    margin-left: 4px;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: rgba(22, 24, 35, 0.75);
+}
+
+.Analyze{
+    margin-top: 8px;
+}
+.count{
+    font-weight: 700;
+    margin-right: 6px;
+    font-size: 1.7rem;
+    line-height: 20px;
+}
+
+.title {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 1.7rem;
+    line-height: 20px;
+    margin-right: 12px;
+}

@@ -1,0 +1,42 @@
+.header {
+    margin-top: 8px;
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 600;
+    padding-top: 16px;
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+}
+
+.wrapper {
+    display: flex;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 200ms ease-in-out 0s;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.name {
+    display: flex;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.avatar {
+    margin-right: 12px;
+}
+
+.icon {
+    color: rgb(32, 213, 236);;
+    margin-left: 4px;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: rgba(22, 24, 35, 0.75);
+}
